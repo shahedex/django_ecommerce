@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-<h1>Contact</h1>
-
+<h1>{{ title }}</h1>
+{% if confirm_message %}
+<p>{{ confirm_message }}</p>
+{% endif %}
+{% if form %}
 <form method="POST" action="">
     {% csrf_token%}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type="submit" value="Submit Form" class="btn btn-success"/>
 </form>
+{% endif %}
 {% endblock %}
