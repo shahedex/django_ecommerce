@@ -5,11 +5,12 @@
       </a>
       {% url 'home' as home %}
       {% url 'about' as about %}
+      {% url 'contact' as contact %}
       <a {% if request.path == home %} class="active" {% endif %} class="py-2 d-none d-md-inline-block" href="{% url 'home' %}">Tour</a>
       <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
       <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-      <a {% if request.path == about %} class="active" {% endif %} class="py-2 d-none d-md-inline-block" href="{% url 'about' %}">Support</a>
+      <a {% if request.path == contact %} class="active" {% endif %} class="py-2 d-none d-md-inline-block" href="{% url 'contact' %}">Contact</a>
+      <a {% if request.path == about %} class="active" {% endif %} class="py-2 d-none d-md-inline-block" href="{% url 'about' %}">About Us</a>
       <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
       <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
     </div>
