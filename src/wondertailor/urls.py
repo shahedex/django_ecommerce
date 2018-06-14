@@ -15,17 +15,20 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 from profiles import views as profile_views
 from contact import views as contact_views
+from index import views as index_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', profile_views.home, name='home'),
+    #url(r'^$', profile_views.home, name='home'),
+    url(r'^$', index_views.index, name='index'),
     url(r'^about/$', profile_views.about, name='about'),
     url(r'^contact/$', contact_views.contact, name='contact'),
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
